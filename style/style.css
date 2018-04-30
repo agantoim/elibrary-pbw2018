@@ -4,4 +4,27 @@
 }
 body {
 	font-family: fonts;
+	background-color: #333366;
+}
+.bannerFont {
+	font-weight: bold;
+}
+.container {
+	position: relative;
+	text-align: center;
+	color: white;
+}
+.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}		
+#banner{
+	position: relative;
+}
+#form{
+	position:relative;
+	width: 35%;
+	margin-top: 1%;
 }
