@@ -10,5 +10,12 @@
 	</head>
 	<body>
 		<!-- CONTENT -->
+		<header id="banner" class = "w3-display-container w3-wide" id = "home">
+   			<img id="imgIndex" class = "w3-image" src = "img/banner.jpg" alt = "Library" style = "width:auto; height:auto;">
+    		<div class="centered w3-display-center w3-padding-large">
+      			<h1 class="w3-jumbo w3-text-white w3-hide-small" style="text-align:center;"><b>eLIBRARY</b></h1>
+    		</div>
+		</header>
+		  
 	</body>
 </html>

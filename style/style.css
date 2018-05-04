@@ -23,6 +23,9 @@ body {
 #banner{
 	position: relative;
 }
+#imgIndex{
+	filter:brightness(10%);
+}
 #form{
 	position:relative;
 	width: 35%;
