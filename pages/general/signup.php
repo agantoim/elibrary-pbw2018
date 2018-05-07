@@ -10,6 +10,9 @@
 		<!-- OPTIONAL -->
 		<link rel="stylesheet" href="../../lib/w3.css">
 		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.css">
+		<link rel="stylesheet" href="../../lib/w3-colors-flat.css">
 		<link rel="stylesheet" href="../../style/style.css">
 	</head>
 	<body>
@@ -42,7 +45,7 @@
 			  <input id="iAddress" class="w3-input w3-border" name="first" type="text" placeholder="Address"></p>
 			  <p>
 			  <button id="iRegister" class="w3-btn w3-black">Register</button>
-			  <button id="iCancel" class="w3-btn w3-black">Cancel</button></p>
+			  <a href="/../index.php"><button id="iCancel" class="w3-btn w3-black">Cancel</button></a></p>
 			  
 			</form>
 		</div>

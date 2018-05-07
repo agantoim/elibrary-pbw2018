@@ -5,103 +5,24 @@
 		<title>eLibrary</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- OPTIONAL -->
-		<link rel="stylesheet" href="../../lib/w3.css">
-		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
 		<link rel="stylesheet" href="../../style/style.css">
+		<link rel="stylesheet" href="../../lib/w3.css">
+		<link rel="stylesheet" href="../../lib/w3-colors-flat.css">
+		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.css">
+		
+		
 
 		<style>
-            img {
-				display: block;
-				margin-left: auto;
-				margin-right: auto;
-				width: 0%;
-			}
-
-            body {
-				background-color: #12366F;
-			}
-
-			.hrz-navigation ul {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				overflow: hidden;
-				background-color: azure;
-			}
-
-			.hrz-navigation li {
-				display: inline;
-				float: left;
-			}
-
-			.hrz-navigation li a {
-				display: block;
-				color: black;
-				text-align: center;
-				padding: 14px 16px;
-				background-color: azure;
-				text-decoration: none;
-			}
-
-			.hrz-navigation li a:hover {
-				background-color: #32CD32;
-				color: white;
-			}
-
-			.ver-navigation ul {
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				width: 200px;
-				height: 100%;
-				overflow: auto;
-				background-color: azure;
-			}
-
-			.ver-navigation li h4{
-				list-style-type: none;
-				margin: 0;
-				padding: 10px;
-				width: 200px;
-				overflow: hidden;
-				background-color: #3D66C2;
-				color: white;
-				text-align: center;
-			}
-
-			.ver-navigation li a {
-				display: block;
-				width: 200px;
-				padding: 10px;
-				text-decoration: none;
-				color: black;
-				background-color: azure;
-			}
-
-			.ver-navigation li a:hover {
-				background-color: #32CD32;
-				color: white;
-			}
-
-			li a.active {
-				background-color: #32CD32;
-				color: white;
-			}
-
-			h1{
-				color: white;
-			}
-
 			#profile-btn {
-				background-color: #3D66C2;
-				border: none;
-				color: white;
-				padding: 20px 40px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				margin: 10px;
-				margin-left: 45%;
+				margin-top:21%;
+			}
+
+			#userImage{
+				margin-top:10%;
+				width:200px;
+				height:200px;
 			}
 
 			#update-btn-modal {
@@ -118,75 +39,80 @@
 			}
 
 			.modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgb(0,0,0);
-                background-color: rgba(0,0,0,0.4);
-                padding-top: 60px;
-            }    
+				display: none;
+				position: fixed;
+				z-index: 1;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				background-color: rgb(0,0,0);
+				background-color: rgba(0,0,0,0.4);
+				padding-top: 60px;
+			}    
 
-            .modal-content {
-                background-color: #fefefe;
-                margin: 10% auto 15% auto;
+			.modal-content {
+				background-color: #fefefe;
+				
 				padding: 20px;
-                width: 18%;
-            }
+				
+			}
 		</style>
 	</head>
+			
+		<?php
+			include '../layout/header.php';
+			include '../layout/navbar.php';
+			include '../layout/sidebar.php';
+		?>
 
 	<body>
-		<!-- CONTENT -->
-		<header class = "w3-display-container w3-wide" id = "home">
-   			<img class = "w3-image" src = "../../img/banner2.jpg" alt = "Library" style = "width:auto; height:auto">
-    		<div class = "w3-display-center w3-padding-large">
-      			<h1 class = "w3-jumbo w3-text-white w3-hide-small" style = "text-align:center;"><b>eLibrary</b></h1>
-    		</div>
-  		</header>
+		
 
-		<div class = "hrz-navigation">
-			<ul>
-				<li><a href = "../user/usr.php">Home</a>
-				<li><a href = "../general/news.php">News</a>
-				<li><a class = "active" href = "../general/profile.php">Profile</a>
-				<li style = "float:right"><a href = "../general/logout.php">Logout</a>
-			</ul>	
-		</div>
+		<div id="content" style="">
 
-		<div class = "ver-navigation">
-			<ul>
-				<li><h4>MENU</h4>
-				<li><a href = "../user/book.php">Book List</a>
-				<li><a href = "../user/borrow.php">Borrowing History</a>
-				<li><a href = "#download">Download Journal</a>
-			</ul>
-		</div>
-
-		<div style = "margin-left:13%; padding:1px 1px; height:500px;">
-			<h1>Profile</h1>
+			<div class="w3-container w3-card w3-flat-wet-asphalt">
+				<h1>Profile</h1>
+			</div>
 			
-			<div class = "container" style = "margin-left:0%; padding:1px 1px;">
-				<img src = "../../img/profile.jpg" alt = "Profile" style = "width:200px; height:200px;">
-				<button id = "profile-btn">Update Profile</button>
+			<!-- content -->
+			
+			<div class = "container" style = "">
+				<div>	
+					<img id="userImage" class="w3-display-middle" src = "../../img/profile.jpg" alt = "Profile">
+				</div>
+				<div>
+					<input type="button" id = "profile-btn"  class="w3-display-middle w3-btn w3-black"  value="Update Profile" style="max-width:600px">
+				</div>
+				
+				
 
-				<div id = "profile-modal" class = "modal">
+				<div id = "profile-modal" class = "w3-display-topmiddle w3-container w3-card-4 w3-light-grey ">
 					<div class = "modal-content">
 						<h2>Update User Info</h2>
-						<p>Name: Anton</p>
-						<input type = "password" placeholder = "Password" style = "width:300px"><br><br>
-                		<input type = "password" placeholder = "Confirm Password" style = "width:300px"><br><br>
-                		<input type = "text" placeholder = "Phone" style = "width:300px"><br><br>
-                		<input type = "text" placeholder = "Address" style = "width:300px"><br><br>
+						<p>Name: Tomi</p>
+						<p>
+						<input id="iPassword" class="w3-input w3-border" name="last" type="password" placeholder="Password"></p>
+						
+						<p>
+						<input id="iConfirmPass" class="w3-input w3-border" name="first" type="password" placeholder="Confirm Password"></p>
+						
+						<p>
+						<input id="iPhone" class="w3-input w3-border" name="first" type="text" placeholder="Phone"></p>
+						
+						<p>
+						<input id="iAddress" class="w3-input w3-border" name="first" type="text" placeholder="Address"></p>
 						<a href = "profile.php" id = "update-btn-modal" type = "button">UPDATE</a>
 					</div>
-				</div>	
-			</div>
-		</div>	
+				</div>
+
+				</div>
+			<?php
+				include '../layout/footer.php';
+		?>
+			
+		
 	</body>
 
 	<script>

@@ -10,6 +10,9 @@
 		<!-- OPTIONAL -->
 		<link rel="stylesheet" href="../../lib/w3.css">
 		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.css">
+		<link rel="stylesheet" href="../../lib/w3-colors-flat.css">
 		<link rel="stylesheet" href="../../style/style.css">
 	</head>
 	<body>
@@ -29,8 +32,8 @@
 			  <p>
 			  <input id="iPassword" class="w3-input w3-border" name="last" type="Password" placeholder="Password"></p>
 			  <p>
-			  <button id="iLogin" class="w3-btn w3-black">Login</button>
-			  <button id="iCancel" class="w3-btn w3-black">Cancel</button></p>
+			  	<a href="../user/usr.php"><input type="button" onclick="location.href='../user/usr.php';" id="iLogin" class="w3-btn w3-black" value="Login"></a>
+				<a href="../../index.php"><input type="button" onclick="location.href='../../index.php';" id="iCancel" class="w3-btn w3-black" value="Cancel"></a></p>
 			  
 			</form>
 		</div>

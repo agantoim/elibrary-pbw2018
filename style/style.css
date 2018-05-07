@@ -4,7 +4,7 @@
 }
 body {
 	font-family: fonts;
-	background-color: #333366;
+	background-color: #0c2e77;
 }
 .bannerFont {
 	font-weight: bold;
@@ -19,15 +19,37 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-}		
+}
+.linkSideBar{
+	border-bottom: 1px;
+}
+
 #banner{
 	position: relative;
 }
 #imgIndex{
-	filter:brightness(10%);
+	filter:brightness(50%);
 }
 #form{
 	position:relative;
 	width: 35%;
 	margin-top: 1%;
 }
+#sidebar{
+	margin-left: 1%;
+	margin-top:1%;
+	padding: 0;
+	position:fixed;
+}
+#topbar{
+	width: 98%;
+	margin-left: 1%;
+	margin-top:1%;
+}
+#content{
+	margin-left:21.1%;
+	margin-top:1%;
+	margin-right: 1%;
+}
+
+/* profile.php */
