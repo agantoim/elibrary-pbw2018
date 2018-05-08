@@ -20,11 +20,13 @@
 				display:block;
 				margin-top:2%;
 				margin-right:1%;
+				width:40%;
 			}
 			select{
 				width:75px;
 				margin-left:15px;
 				margin-right:15px;
+
 			}
 			#titleContent{
 				float:left;
