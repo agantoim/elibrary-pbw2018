@@ -1,4 +1,6 @@
-<?php  ?>
+<?php
+	include '../../connect/connection.php'
+?>
 <!DOCTYPE html>
 <html>
 	<style>
@@ -14,13 +16,30 @@
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
 		<link rel="stylesheet" href="../../lib/w3-colors-flat.css">
 		<link rel="stylesheet" href="../../style/style.css">
+		<style>
+				a:link {
+				text-decoration: none;
+			}
+
+			a:visited {
+				text-decoration: none;
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
+			a:active {
+				text-decoration: underline;
+			}
+			</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
 		<header id='banner' class='container w3-card-4 w3-display-topmiddle' style='width: 98%; margin-top: 1%'>
 			<img class='' src="\..\elibrary\elibrary-pbw2018\img\banner2.jpg" alt="library" style='width: 100%'>
 			<div class='centered'>
-				<h1 class='bannerFont w3-jumbo w3-text-white w3-hide-small'>eLIBRARY</h1>
+				<a href="../admin/adm.php"><h1 class='bannerFont w3-jumbo w3-text-white w3-hide-small'>eLIBRARY</h1></a>
 			</div>
 		</header>
 		<div id='form' class="w3-display-topmiddle w3-container w3-card-4 w3-light-grey ">

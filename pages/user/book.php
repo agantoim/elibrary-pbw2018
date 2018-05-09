@@ -1,4 +1,6 @@
-<?php  ?>
+<?php
+	include '../../connect/connection.php'
+?>
 <!DOCTYPE html>
 <html>
 	<head>

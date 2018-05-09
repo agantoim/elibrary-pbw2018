@@ -1,3 +1,6 @@
+<?php
+	include '/connect/connection.php'
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,6 +10,9 @@
 		<link rel="stylesheet" href="lib/w3.css">
 		<link rel="stylesheet" href="lib/w3-theme-riverside.css">
 		<link rel="stylesheet" href="style/style.css">
+		<style>
+			
+		</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
@@ -18,7 +24,7 @@
 		</header>
 		<div class="w3-center" style="margin-top:5%;">
 			
-			<a href = "pages/general/signup.php">
+			<a href = "pages/general/signup.php" >
 				<button id="iLogin" class="w3-btn w3-black w3-xxlarge" style="margin:1%">
 					SIGN UP
 				</button>

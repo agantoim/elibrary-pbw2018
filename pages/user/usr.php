@@ -1,4 +1,6 @@
-<?php  ?>
+<?php
+	include '../../connect/connection.php'
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -35,9 +37,7 @@
 			</div>
 
 			<div class="w3-container">
-				<h2>Sidebar Navigation Example</h2>
-				<p>The sidebar with is set with "style="width:25%".</p>
-				<p>The left margin of the page content is set to the same value.</p>
+				<h2>About us</h2>
 			</div>
 
 			<?php

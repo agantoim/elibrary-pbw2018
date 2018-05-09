@@ -1,4 +1,6 @@
-<?php  ?>
+<?php
+	include '../../connect/connection.php'
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,7 +26,7 @@
 				background-color: #12366F;
 			}
 			#profile-btn {
-				background-color: #3D66C2;
+				background-color: black;
 				border: none;
 				color: white;
 				padding: 20px 40px;
@@ -36,7 +38,7 @@
 			}
 
 			#update-btn-modal {
-				background-color: #3D66C2;
+				background-color: black;
 				border: none;
 				color: white;
 				padding: 10px 15px;
@@ -87,7 +89,7 @@
 					
 					<div class = "container" style = "margin-left:0%; padding:1px 1px;">
 						<img src = "../../img/profile.jpg" alt = "Profile" style = "width:200px; height:200px;">
-						<button id = "profile-btn">Update Profile</button>
+						<a><button id = "profile-btn">Update Profile</button></a>
 
 						<div id = "profile-modal" class = "modal">
 							<div class = "modal-content">
