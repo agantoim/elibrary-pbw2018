@@ -23,10 +23,14 @@
 
 		<?php
 			include '../layout/header.php';
+		?>
+		<?php
 			include '../layout/navbar.php';
+		?>
+			
+		<?php
 			include '../layout/sidebar.php';
 		?>
-
 		<!-- Sidebar -->
 
 		<!-- Page Content -->

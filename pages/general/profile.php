@@ -1,5 +1,5 @@
 <?php
-	include '../../connect/connection.php'
+	include '../../connect/connection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -94,7 +94,7 @@
 						<div id = "profile-modal" class = "modal">
 							<div class = "modal-content">
 								<h2>Update User Info</h2>
-								<p>Name: Tomi</p>
+								<p>Name: <?php if(isset($_SESSION['user'])){echo $_SESSION['user'];}?></p>
 								<p>
 								<input id="iPassword" class="w3-input w3-border" name="last" type="password" placeholder="Password"></p>
 								<p>

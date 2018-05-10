@@ -1,3 +1,11 @@
+<?php
+	include '../../connect/connection.php';
+	session_start();
+	// remove all session variables
+	session_unset(); 
+	// destroy the session 
+	session_destroy(); 
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,78 +14,38 @@
 		<!-- OPTIONAL -->
 		<link rel="stylesheet" href="../../lib/w3.css">
 		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
+		<link rel="stylesheet" href="../../lib/font-awesome.css">
+		<link rel="stylesheet" href="../../lib/w3-colors-flat.css">
 		<link rel="stylesheet" href="../../style/style.css">
-
 		<style>
-			.button {
-				margin-left: 43%;
-				width: 50%;
-			}
-
-			#signup-btn:hover, #login-btn:hover {
-				opacity: 0.8;
-			}
-
-			body {
-				background-color: #12366F;
-			}
-
-			img {
-				display: block;
-				margin-left: auto;
-				margin-right: auto;
-				width: 0%;
-			}
-
-			.container {
-				background-color: azure;
-				padding: 75px;
-				margin-left: auto;
-				margin-right: auto;
-				width: 90%;
-			}
-
-			#signup-btn {
-				background-color: #3D66C2;
-				border: none;
-				color: white;
-				padding: 15px 30px;
-				text-align: center;
-				text-decoration: none;
-			}
-
-            #login-btn {
-				background-color: #3D66C2;
-				border: none;
-				color: white;
-				padding: 15px 30px;
-				text-align: center;
-				text-decoration: none;
-			}
-
-			h3 {
-				text-align: center;
-			}
-
+			
 		</style>
 	</head>
-
 	<body>
 		<!-- CONTENT -->
-		<header class = "w3-display-container w3-wide" id = "home">
-   			<img class = "w3-image" src = "../../img/banner.jpg" alt = "Library" style = "width:auto; height:auto;">
-    		<div class="w3-display-center w3-padding-large">
-      			<h1 class="w3-jumbo w3-text-white w3-hide-small" style="text-align:center;"><b>eLibrary</b></h1>
+		<header id="banner" class = "w3-card w3-display-container w3-wide" id = "home">
+   			<img id="imgIndex" class = "w3-image" src = "../../img/banner.jpg" alt = "Library" style = "width:auto; height:auto;">
+    		<div class="centered w3-display-center w3-padding-large">
+      			<h1 class="w3-jumbo w3-text-white w3-hide-small" style="text-align:center;"><b>eLIBRARY</b></h1>
     		</div>
-  		</header>
-
-		<div class = "container">
-			<h3>You have successfully logged out.</h3>
-
-			<div class = "button">
-				<a id = "signup-btn" href = "signup.php" type = "button">SIGN UP</a>
-				<a id = "login-btn" href = "login.php" type = "button">LOGIN</a>
-			</div>
+		</header>
+		<div class="w3-center" style="margin-top:5%;">
+			<p><h2>You have successffuly loged out.</h2></p>
+			<a href = "signup.php" >
+				<button id="iLogin" class="w3-btn w3-black w3-xxlarge" style="margin:1%">
+					SIGN UP
+				</button>
+			</a>
+			
+			<a href = "login.php">
+				<button href = "pages/general/login.php" id="iCancel" class="w3-btn w3-black w3-xxlarge" style="margin:1%">
+					LOGIN
+				</button>
+			</a>
+		</div>
+		<div>
+			
 		</div>
 	</body>
 </html>
