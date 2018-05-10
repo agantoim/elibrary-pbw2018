@@ -1,5 +1,23 @@
 <?php
 	include '../../connect/connection.php';
+	session_start();
+	$successModal="none";
+	$statusUpdate="";
+	if(isSet($_POST['iUpdate'])){
+		$getPass=$_POST['iPassword'];
+		$getPassCnfrm=$_POST['iConfrmPass'];
+		$getPhone=$_POST['iPhone'];
+		$getAddress=$_POST['iAddress'];
+		$userFromSession=$_SESSION['user'];
+		$query="UPDATE `anggota` SET `password`='$getPass',`phone`='$getPhone',`address`='$getAddress' WHERE `username`='$userFromSession'";
+		if ($conn->query($query) === TRUE) {
+			$successModal="inline !important";
+			$statusUpdate="Success updating profile.";
+		} else {
+			$successModal="inline !important";
+			$statusUpdate= "Update Fail!";
+		}	
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,15 +88,30 @@
 				padding: 20px;
                 width: 30%;
 				color:black;
-            }
+			}
+			#errorMsg{
+			width:20%;
+			background-color:red;
+			margin-top:21%;
+			margin-left:13%;
+			text-align: center;
+			height:7%;
+		}
 		</style>
 	</head>
 
 	<body>
 		<?php
 			include '../layout/header.php';
-			include '../layout/navbar.php';
-			include '../layout/sidebar.php';
+			if($_SESSION['status_user']==0)
+			{
+				include '../layout/navbar.php';
+				include '../layout/sidebar.php';
+			}
+			else{
+				include '../admin/navbarAdm.php';
+				include '../Admin/sidebarAdm.php';
+			}
 		?>
 		
 		<div id="content" style="">
@@ -91,29 +124,35 @@
 						<img src = "../../img/profile.jpg" alt = "Profile" style = "width:200px; height:200px;">
 						<a><button id = "profile-btn">Update Profile</button></a>
 
-						<div id = "profile-modal" class = "modal">
-							<div class = "modal-content">
+						<div id = "profile-modal" class = "w3-modal" style="">
+							<div class = "w3-modal-content">
+							<form method="POST" action="profile.php">
 								<h2>Update User Info</h2>
 								<p>Name: <?php if(isset($_SESSION['user'])){echo $_SESSION['user'];}?></p>
 								<p>
-								<input id="iPassword" class="w3-input w3-border" name="last" type="password" placeholder="Password"></p>
+								<input id="iPassword" class="w3-input w3-border" name="iPassword" type="password" placeholder="Password"></p>
 								<p>
-								<input id="iConfirmPass" class="w3-input w3-border" name="first" type="password" placeholder="Confirm Password"></p>
+								<input id="iConfirmPass" class="w3-input w3-border" name="iConfrmPass" type="password" placeholder="Confirm Password"></p>
 								<p>
-								<input id="iPhone" class="w3-input w3-border" name="first" type="text" placeholder="Phone"></p>
+								<input id="iPhone" class="w3-input w3-border" name="iPhone" type="text" placeholder="Phone"></p>
 								<p>
-								<input id="iAddress" class="w3-input w3-border" name="first" type="text" placeholder="Address"></p>
-								<a class="" href = "profile.php" id = "update-btn-modal" type = "button">UPDATE</a>
+								<input id="iAddress" class="w3-input w3-border" name="iAddress" type="text" placeholder="Address"></p>
+								<a><input type="submit" onclick="" name="iUpdate" id="iUpdate" class="w3-btn w3-black" value="Update"></a>
+								<!-- <a class=""  href = "profile.php" id = "update-btn-modal" type = "submit">UPDATE</a> -->
+							</form>
 							</div>
 						</div>
 					</div>
+					<div id="errorMsg" class="w3-card w3-display-middle" style="display:<?php echo $successModal?>">
+						<p style=""><?php echo $statusUpdate?></p>
+					</div>
 				</div>
+
+				
 			<?php
 				include '../layout/footer.php';
 		?>
-	</body>
-
-	<script>
+		<script>
 		var modal = document.getElementById('profile-modal');
 		var btn = document.getElementById('profile-btn');
 
@@ -127,4 +166,7 @@
 			}
 		}
 	</script>
+	</body>
+
+	
 </html>

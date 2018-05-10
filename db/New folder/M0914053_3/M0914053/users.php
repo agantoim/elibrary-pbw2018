@@ -7,13 +7,7 @@
 			$query .=" WHERE name LIKE '%$name%'";
 		}
 	}
-	$start=0;
-	$show=8;
-	$pageContent=$conn->query($query)->num_rows/$show;
-	if(isset($_GET['start'])){
-		$start=$_GET['start'];
-	}
-	$query.=" LIMIT $start,$show";
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,17 +26,17 @@
 	<br>
 	<a href="update.php" >UPDATE</a>
 	<br>
-	<hr>
+	<br>
 		<?php
-			if($res=$conn->query($query)){
-				while($row=$res->fetch_array()){
-					echo "<tr>";
-					echo "<td>".$row['userID']."</td>";
-					echo "<td>".$row['name']."</td>";
-					echo "<td>".$row['role']."</td>";
-					echo "</tr>";
-				}
-			}
+			//if($res=$conn->query($query)){
+				//while($row=$res->fetch_array()){
+					//echo "<tr>";
+					//echo "<td>".$row['userID']."</td>";
+					//echo "<td>".$row['name']."</td>";
+					//echo "<td>".$row['role']."</td>";
+					//echo "</tr>";
+				//}
+			//}
 		?>
 			
 	<br>

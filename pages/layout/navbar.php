@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
         <div id="topbar" class="w3-bar w3-light-grey w3-card w3-border">
 			<a href="../general/logout.php" class="w3-bar-item w3-button w3-right"><i class="fa fa-sign-in"></i></a>
 			<a href="../general/profile.php" class="w3-bar-item w3-button w3-right"><i class="fa fa-user"></i></a>

@@ -1,4 +1,7 @@
-<?php  ?>
+<?php
+	include '../../connect/connection.php';
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>

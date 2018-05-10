@@ -1,5 +1,6 @@
 <?php
-	include '../../connect/connection.php'
+	include '../../connect/connection.php';
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>

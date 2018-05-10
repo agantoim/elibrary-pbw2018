@@ -1,4 +1,21 @@
-<?php  ?>
+<?php 
+	include '../../connect/connection.php';
+	session_start();
+	$query="select * from anggota where status_user=1  ";
+	if(isSet($_GET['iSubmit'])){
+		$search=$_GET['iSearch'];
+		if(isSet($search) && $search !=""){
+			$query .="and username LIKE '%$search%'";
+		}
+	}
+	// $start=0;
+	// $show=8;
+	// $pageContent=$conn->query($query)->num_rows/$show;
+	// if(isset($_GET['start'])){
+	// 	$start=$_GET['start'];
+	// }
+	// $query.=" LIMIT $start,$show";
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,7 +38,7 @@
 				display:block;
 				margin-top:2%;
 				margin-right:1%;
-				width:47%;
+				width:53%;
 			}
 			select{
 				width:75px;
@@ -36,8 +53,8 @@
 	</head>
 	<body>
 		<?php
-			include '../layout/header.php';
-			include '../layout/navbar.php';
+			include '/headerAdm.php';
+			include '/navbarAdm.php';
 			include '/sidebarAdm.php'
 		?>
 		
@@ -46,10 +63,11 @@
 
 			<div id="divTopContent" class="w3-container w3-card w3-flat-wet-asphalt">
 				<div id="titleContent">
-					<h1>Book List</h1>
+					<h1>Admin List</h1>
 				</div>
+				<form method="get" class="member.php">
 				<div id="searchNsort" class="">
-				<input type="text" style="margin-right:1%;" placeholder="Search admin...">
+				<input type="text" style="margin-right:1%;" name="iSearch" placeholder="Search admin...">
 				by
 				<select>
 					<option value="ID">ID</option>
@@ -57,9 +75,10 @@
 					<option value="Phone">Phone</option>
 					<option value="Address">Address</option>
 				</select>
-				<input class="" type="submit" value="SEARCH"  style="margin-right:1%;">
+				<input class="" type="submit" value="SEARCH" name="iSubmit" style="margin-right:1%;">
 				<input class="" type="submit" value="ADD ADMIN">
 				</div>
+				</form>
 			</div>
 
 			<div class="w3-container">
@@ -72,24 +91,19 @@
 						<th>Address</th>
 					</tr>
 					</thead>
-					<tr>
-						<td>adm1</td>
-						<td>Admin1</td>
-						<td>0220000</td>
-						<td>Indonesia</td>
-					</tr>
-					<tr>
-						<td>adm2</td>
-						<td>Admin2</td>
-						<td>0220000</td>
-						<td>Indonesia</td>
-					</tr>
-					<tr>
-						<td>adm3</td>
-						<td>Admin3</td>
-						<td>0220000</td>
-						<td>Indonesia</td>
-					</tr>
+					<?php
+						//$query="select userID,name,role from user_data";
+						if($res=$conn->query($query)){
+							while($row=$res->fetch_array()){
+								echo "<tr>";
+								echo "<td>".$row['id']."</td>";
+								echo "<td>".$row['username']."</td>";
+								echo "<td>".$row['phone']."</td>";
+								echo "<td>".$row['address']."</td>";
+								echo "</tr>";
+							}
+						}
+					?>
 				</table>
 			</div>
 

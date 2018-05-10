@@ -1,5 +1,6 @@
 <?php
-	include '../../connect/connection.php'
+	include '../../connect/connection.php';
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,8 +38,15 @@
 	<body>
 		<?php
 			include '../layout/header.php';
-			include '../layout/navbar.php';
-			include '../layout/sidebar.php';
+			if($_SESSION['status_user']==0)
+			{
+				include '../layout/navbar.php';
+				include '../layout/sidebar.php';
+			}
+			else{
+				include '../admin/navbarAdm.php';
+				include '../Admin/sidebarAdm.php';
+			}
 		?>
 
 		<div id="content" style="">
@@ -47,7 +55,7 @@
 			</div>
                 <div class="w3-container">
 
-                    <div class="w3-panel w3-card w3-border w3-flat-wet-asphalt">
+                    <div id="journal1" class="w3-panel w3-card w3-border w3-flat-wet-asphalt">
                         <p>
                             <h4>Journal 1</h4>
                             <h6>Writer 1</h6>
@@ -57,7 +65,7 @@
                             Autem elitr has in, no vix nemore eruditi suscipiantur.
                         </p>
                     </div>
-                    <div class="w3-panel w3-card w3-border w3-flat-wet-asphalt">
+                    <div id="journal2" class="w3-panel w3-card w3-border w3-flat-wet-asphalt">
                         <p>
                             <h4>Journal 2</h4>
                             <h6>Writer 2</h6>
@@ -67,7 +75,7 @@
                             Duo enim voluptatibus ne. Sed magna graece ex, ad ludus oporteat accusata sit, no cum dicunt nostrum electram.
                         </p>
                     </div>
-                    <div class="w3-panel w3-card w3-border w3-flat-wet-asphalt">
+                    <div id="journal3" class="w3-panel w3-card w3-border w3-flat-wet-asphalt">
                         <p>
                             <h4>Journal 3</h4>
                             <h6>Writer 3</h6>
@@ -81,7 +89,17 @@
 			<?php
 			include '../layout/footer.php';
 		?>
-
+			<script>
+				document.getElementById('journal1').addEventListener("click",function(){
+					window.open('../../files/JOURNAL1.pdf', '_blank');
+				});
+				document.getElementById('journal2').addEventListener("click",function(){
+					window.open('../../files/JOURNAL2.pdf', '_blank');
+				});
+				document.getElementById('journal3').addEventListener("click",function(){
+					window.open('../../files/JOURNAL3.pdf', '_blank');
+				});
+			</script>
 			
 	</body>
 </html>

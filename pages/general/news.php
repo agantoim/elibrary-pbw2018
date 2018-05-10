@@ -1,5 +1,6 @@
 <?php
-	include '../../connect/connection.php'
+	include '../../connect/connection.php';
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,9 +21,17 @@
 	</head>
 	<body>
 		<?php
+		
 			include '../layout/header.php';
-			include '../layout/navbar.php';
-			include '../layout/sidebar.php';
+			if($_SESSION['status_user']==0)
+			{
+				include '../layout/navbar.php';
+				include '../layout/sidebar.php';
+			}
+			else{
+				include '../admin/navbarAdm.php';
+				include '../Admin/sidebarAdm.php';
+			}
 		?>
 		
 		<!-- CONTENT -->

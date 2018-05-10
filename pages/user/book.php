@@ -1,5 +1,6 @@
 <?php
-	include '../../connect/connection.php'
+	include '../../connect/connection.php';
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +23,7 @@
 				display:block;
 				margin-top:2%;
 				margin-right:1%;
-				width:40%;
+				width:43%;
 			}
 			select{
 				width:75px;

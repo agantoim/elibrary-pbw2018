@@ -19,7 +19,7 @@
 
 		$checkUname=$conn->query($checkUser);
 		$checkPass=$conn->query($checkPass);
-		$checkStatUsr=$conn->query($checkStatusUser);
+		$pageDiffer='';
 
 		if($checkUser===false){
 			echo "wrong query";
@@ -29,9 +29,12 @@
 				$row=$checkPass->fetch_assoc();
 
 				if($row['status_user']==0){
+					$_SESSION['status_user']=0;
 					header('location:../user/usr.php');
+					
 				}
 				else{
+					$_SESSION['status_user']=1;
 					header('location:../admin/adm.php');
 				}
 			}else{
