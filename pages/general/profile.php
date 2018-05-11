@@ -10,13 +10,21 @@
 		$getAddress=$_POST['iAddress'];
 		$userFromSession=$_SESSION['user'];
 		$query="UPDATE `anggota` SET `password`='$getPass',`phone`='$getPhone',`address`='$getAddress' WHERE `username`='$userFromSession'";
-		if ($conn->query($query) === TRUE) {
-			$successModal="inline !important";
-			$statusUpdate="Success updating profile.";
-		} else {
-			$successModal="inline !important";
-			$statusUpdate= "Update Fail!";
-		}	
+		$compare2Pass=strcmp($getPass,$getPassCnfrm);
+		echo $compare2Pass;
+			if($compare2Pass==0){	
+				if ($conn->query($query) === TRUE) {
+					$successModal="inline !important";
+					$statusUpdate="Success updating profile.";
+				} else {
+					$successModal="inline !important";
+					$statusUpdate= "Update Fail!";
+				}
+			}
+			else {
+				$successModal="inline !important";
+				$statusUpdate="Password did not match!";
+			}
 	}
 ?>
 <!DOCTYPE html>
@@ -67,7 +75,9 @@
 			#profile-btn:hover, #update-btn-modal:hover {
 				opacity: 0.8;
 			}
-
+			#profile-modal{
+				
+			}
 			.modal {
                 display: none;
                 position: fixed;
@@ -92,7 +102,7 @@
 			#errorMsg{
 			width:20%;
 			background-color:red;
-			margin-top:21%;
+			margin-top:22%;
 			margin-left:13%;
 			text-align: center;
 			height:7%;
@@ -125,10 +135,10 @@
 						<a><button id = "profile-btn">Update Profile</button></a>
 
 						<div id = "profile-modal" class = "w3-modal" style="">
-							<div class = "w3-modal-content">
-							<form method="POST" action="profile.php">
-								<h2>Update User Info</h2>
-								<p>Name: <?php if(isset($_SESSION['user'])){echo $_SESSION['user'];}?></p>
+							<div class = "w3-modal-content" style="width:35%; padding:30px;">
+							<h2 class="" style="color:black;">Update User Info</h2>
+							<form method="POST" action="profile.php" style="">
+								<p style="color:black;">Name: <?php if(isset($_SESSION['user'])){echo $_SESSION['user'];}?></p>
 								<p>
 								<input id="iPassword" class="w3-input w3-border" name="iPassword" type="password" placeholder="Password"></p>
 								<p>

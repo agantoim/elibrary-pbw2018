@@ -2,19 +2,13 @@
 	include '../../connect/connection.php';
 	session_start();
 	$query="select * from anggota where status_user=0 ";
-	if(isSet($_GET['iSubmit'])){
-		$search=$_GET['iSearch'];
+	if(isSet($_POST['iSubmit'])){
+		$search=$_POST['iSearch'];
+		$searchBy=$_POST['searchBy'];
 		if(isSet($search) && $search !=""){
-			$query .=" and username LIKE '%$search%'";
+			$query .=" and $searchBy LIKE '%$search%'";
 		}
 	}
-	// $start=0;
-	// $show=8;
-	// $pageContent=$conn->query($query)->num_rows/$show;
-	// if(isset($_GET['start'])){
-	// 	$start=$_GET['start'];
-	// }
-	// $query.=" LIMIT $start,$show";
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,22 +59,22 @@
 				<div id="titleContent">
 					<h1>Member List</h1>
 				</div>
-				<form method="get" class="member.php">
+				<form method="POST" class="member.php">
 				<div id="searchNsort" class="">
 				<input type="text" style="margin-right:1%;" name="iSearch" placeholder="Search member...">
 				by
-				<select>
-					<option value="ID">ID</option>
-					<option value="Name">Name</option>
-					<option value="Phone">Phone</option>
-					<option value="Address">Address</option>
+				<select name="searchBy">
+					<option value="id">ID</option>
+					<option value="nama_anggota">Name</option>
+					<option value="phone">Phone</option>
+					<option value="address">Address</option>
 				</select>
 				<input class="" type="submit" value="SEARCH" name="iSubmit" style="margin-right:1%;">
 				</div>
 				</form>
 			</div>
-
-			<div class="w3-container">
+			
+			<div class="w3-container" style="margin-bottom:5%;">
 			<table id="membertable" class="w3-table-all w3-hoverable w3-card">
 					<thead>
 					<tr class="w3-blue">
@@ -97,7 +91,7 @@
 							while($row=$res->fetch_array()){
 								echo "<tr>";
 								echo "<td>".$row['id']."</td>";
-								echo "<td>".$row['username']."</td>";
+								echo "<td>".$row['nama_anggota']."</td>";
 								echo "<td>".$row['phone']."</td>";
 								echo "<td>".$row['address']."</td>";
 								echo "</tr>";

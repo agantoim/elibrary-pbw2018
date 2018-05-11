@@ -53,7 +53,7 @@
              <div class="w3-container w3-card w3-flat-wet-asphalt">
 				    <h1>Free Journals</h1>
 			</div>
-                <div class="w3-container">
+                <div class="w3-container" style="margin-bottom:5%;">
 
                     <div id="journal1" class="w3-panel w3-card w3-border w3-flat-wet-asphalt">
                         <p>

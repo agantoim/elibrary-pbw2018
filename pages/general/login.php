@@ -10,12 +10,8 @@
 		$getUname=$_POST['iUsername'];
 		$getPass=$_POST['iPassword'];
 		
-		
 		$checkUser="SELECT username,password,status_user FROM `anggota` WHERE username='$getUname'";
 		$checkPass="SELECT password,status_user FROM `anggota` WHERE username='$getUname' and password='$getPass'";
-		//$checkStatusUser="SELECT status_user FROM `anggota` WHERE username='$getUname' and password='$getPass'";
-		
-		//$res=$mysqli->use_result();
 
 		$checkUname=$conn->query($checkUser);
 		$checkPass=$conn->query($checkPass);
@@ -27,11 +23,9 @@
 			$_SESSION['user']=$_POST['iUsername'];
 			if($checkPass->num_rows == 1){
 				$row=$checkPass->fetch_assoc();
-
 				if($row['status_user']==0){
 					$_SESSION['status_user']=0;
 					header('location:../user/usr.php');
-					
 				}
 				else{
 					$_SESSION['status_user']=1;
@@ -41,12 +35,10 @@
 				$errorMsg="Wrong Password!";
 				$errorQuery="visible";
 			}
-			//$_SESSION['statusUser']=$_POST[''];
 		}else{
 			$errorMsg="Wrong Username!";
 			$errorQuery="visible";
 		}
-		
 	}
 ?>
 <!DOCTYPE html>
@@ -84,13 +76,11 @@
 			  <h2>Login</h2>
 			  <p>
 			  <input id="iUsername" class="w3-input w3-border" name="iUsername" type="text" placeholder="Username" required></p>
-			  
 			  <p>
 			  <input id="iPassword" class="w3-input w3-border" name="iPassword" type="Password" placeholder="Password" required></p>
 			  <p>
 			  	<a><input type="submit" onclick="" name="iLogin" id="iLogin" class="w3-btn w3-black" value="Login"></a>
 				<a><input type="submit" onclick="location.href='../../index.php';" name="iLogin" id="iCancel" class="w3-btn w3-black" value="Cancel"></a></p>
-				
 			</form>
 		</div>
 		<div id="errorMsg" class="w3-card w3-display-middle" style="display:<?php echo $errorQuery?>">

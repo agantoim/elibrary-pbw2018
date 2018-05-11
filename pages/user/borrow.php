@@ -1,6 +1,7 @@
 <?php
 	include '../../connect/connection.php';
 	session_start();
+	$query="select * from peminjaman";
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,7 +37,7 @@
 				
 			</div>
 
-			<div class="w3-container">
+			<div class="w3-container" style="margin-bottom:5%;">
 			<table id="borrowTable" class="w3-table-all w3-hoverable w3-card">
 					<thead>
 					<tr class="w3-blue">
@@ -49,33 +50,21 @@
 						<th>Fee</th>
 					</tr>
 					</thead>
-					<tr>
-						<td>A0001</td>
-						<td>Book1</td>
-						<td>Jill</td>
-						<td>2011/11/1</td>
-						<td>2011/11/8</td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td>A0002</td>
-						<td>Book2</td>
-						<td>Jackson</td>
-						<td>2011/11/2</td>
-						<td>2011/11/9</td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<td>A0003</td>
-						<td>Book3</td>
-						<td>Johnson</td>
-						<td>2011/11/3</td>
-						<td>2011/11/10</td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
+					<?php
+						if($res=$conn->query($query)){
+							while($row=$res->fetch_array()){
+								echo "<tr>";
+								echo "<td>".$row['book_code']."</td>";
+								echo "<td>".$row['title']."</td>";
+								echo "<td>".$row['author']."</td>";
+								echo "<td>".$row['borrow_date']."</td>";
+								echo "<td>".$row['return_date']."</td>";
+								echo "<td>".$row['due']."</td>";
+								echo "<td>".$row['fine']."</td>";
+								echo "</tr>";
+							}
+						}
+					?>
 				</table>
 			</div>
 

@@ -41,7 +41,7 @@
 				<h1>Welcome to eLibrary!</h1>
 			</div>
 
-			<div class="w3-container">
+			<div class="w3-container" style="margin-bottom:5%;"">
 				<h2>Trump election: Priebus and Bannon given key roles</h2>
 				<p>
 				US President-elect Donald Trump has awarded key roles in his incoming team to a top Republican party official and a right-wing media chief.

@@ -1,6 +1,14 @@
 <?php
 	include '../../connect/connection.php';
 	session_start();
+	$query="select * from buku";
+	if(isSet($_POST['iSubmit'])){
+		$search=$_POST['iSearch'];
+		$searchBy=$_POST['order'];
+		if(isSet($search) && $search !=""){
+			$query .=" where $searchBy  LIKE '%$search%'";
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +31,7 @@
 				display:block;
 				margin-top:2%;
 				margin-right:1%;
-				width:43%;
+				width:43.5%;
 			}
 			select{
 				width:75px;
@@ -51,19 +59,21 @@
 					<h1>Book List</h1>
 				</div>
 				<div id="searchNsort" class="">
-				<input type="text" style="margin-right: 15px;" placeholder="Search books...">
-				by
-				<select>
-					<option value="Title">Title</option>
-					<option value="Author">Author</option>
-					<option value="Publication Year">Publication Year</option>
-					<option value="Publisher">Publisher</option>
-				</select>
-				<input class="" type="submit" value="SEARCH">
+				<form method="post" class="member.php">
+					<input type="text" style="margin-right: 15px;" name="iSearch" placeholder="Search books...">
+					by
+					<select name="order">
+						<option value="title">Title</option>
+						<option value="author">Author</option>
+						<option value="pub_year">Publication Year</option>
+						<option value="publisher">Publisher</option>
+					</select>
+					<input class="" type="submit" value="SEARCH" name="iSubmit" style="margin-right:1%;">
+					</form>
 				</div>
 			</div>
 
-			<div class="w3-container">
+			<div class="w3-container" style="margin-bottom:5%;">
 			<table id="booktable" class="w3-table-all w3-hoverable w3-card">
 					<thead>
 					<tr class="w3-blue">
@@ -75,30 +85,20 @@
 						<th>Category</th>
 					</tr>
 					</thead>
-					<tr>
-						<td>A0001</td>
-						<td>Book1</td>
-						<td>Jill</td>
-						<td>2001</td>
-						<td>Pub1</td>
-						<td>Category1</td>
-					</tr>
-					<tr>
-						<td>A0002</td>
-						<td>Book2</td>
-						<td>Jackson</td>
-						<td>2002</td>
-						<td>Pub2</td>
-						<td>Category2</td>
-					</tr>
-					<tr>
-						<td>A0003</td>
-						<td>Book3</td>
-						<td>Johnson</td>
-						<td>2003</td>
-						<td>Pub3</td>
-						<td>Category3</td>
-					</tr>
+					<?php
+						if($res=$conn->query($query)){
+							while($row=$res->fetch_array()){
+								echo "<tr>";
+								echo "<td>".$row['book_code']."</td>";
+								echo "<td>".$row['title']."</td>";
+								echo "<td>".$row['author']."</td>";
+								echo "<td>".$row['pub_year']."</td>";
+								echo "<td>".$row['publisher']."</td>";
+								echo "<td>".$row['category']."</td>";
+								echo "</tr>";
+							}
+						}
+					?>
 				</table>
 			</div>
 

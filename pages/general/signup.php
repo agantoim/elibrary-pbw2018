@@ -11,13 +11,22 @@
 		$statusRegis="";
 		$query="INSERT INTO anggota (username, password, nama_anggota, phone,address,status_user)
 		VALUES ('$getUname', '$getPass','$getName','$getPhone','$getAddress','0')";
-		if ($conn->query($query) === TRUE) {	
+		$checkUser="SELECT username,password,status_user FROM `anggota` WHERE username='$getUname'";
+		$compare2Pass=strcmp($getPass,$getPassCnfrm);
+		echo $compare2Pass;
+			if($compare2Pass==0){
+				if ($conn->query($query) === TRUE) {	
+					$successModal="inline !important";
+					$statusRegis='Success registered as '. $getUname;
+				} else {
+					$successModal="inline !important";
+					$statusRegis= "Username '".$getUname."' sudah digunakan!";
+				}
+			}
+			else {
 			$successModal="inline !important";
-			$statusRegis='Success registered as '. $getUname;
-		} else {
-			$successModal="inline !important";
-			$statusRegis= "Username '".$getUname."' sudah digunakan!";
-		}	
+			$statusRegis="Password did not match!";
+			}
 	}
 	
 ?>
